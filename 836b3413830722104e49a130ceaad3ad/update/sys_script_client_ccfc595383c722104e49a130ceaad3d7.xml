@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>u_rating</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Thank You Message on Rating Selection</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    if (isLoading || newValue === '') {
+        return;
+    }
+
+    var message = '';
+
+    if (newValue.toLowerCase() === 'excellent') {
+        message = "Thank you for your excellent feedback!";
+    } else if (newValue.toLowerCase() === 'good') {
+        message = "Thanks! We're glad you had a good experience.";
+    } else if (newValue.toLowerCase() === 'average') {
+        message = "Thanks for your feedback. We'll keep working to improve.";
+    } else if (newValue.toLowerCase() === 'poor') {
+        message = "We're sorry to hear that. Your feedback helps us do better.";
+    } else {
+        message = "Thank you for your feedback.";
+    }
+
+    // Show message below the rating field
+    g_form.showFieldMsg('u_rating', message, 'info');
+}
+]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-04 09:06:31</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>ccfc595383c722104e49a130ceaad3d7</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Thank You Message on Rating Selection</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Event Management and Planning" source="x_1790116_event_ma">836b3413830722104e49a130ceaad3ad</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Event Management and Planning">836b3413830722104e49a130ceaad3ad</sys_scope>
+        <sys_update_name>sys_script_client_ccfc595383c722104e49a130ceaad3d7</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-04 09:08:02</sys_updated_on>
+        <table>x_1790116_event_ma_feedback</table>
+        <type>onChange</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

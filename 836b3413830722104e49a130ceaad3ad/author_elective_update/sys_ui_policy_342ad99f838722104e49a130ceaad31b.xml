@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_policy">
+    <sys_ui_policy action="DELETE">
+        <active>true</active>
+        <conditions table="x_1790116_event_ma_vendor">u_vendor_nameISEMPTY^EQ<item endquery="false" field="u_vendor_name" goto="false" newquery="false" operator="ISEMPTY" or="false" value=""/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description/>
+        <global>true</global>
+        <inherit>false</inherit>
+        <isolate_script>true</isolate_script>
+        <model_id/>
+        <model_table/>
+        <on_load>true</on_load>
+        <order>100</order>
+        <reverse_if_false>true</reverse_if_false>
+        <run_scripts>false</run_scripts>
+        <script_false><![CDATA[function onCondition() {
+
+}]]></script_false>
+        <script_true><![CDATA[function onCondition() {
+
+}]]></script_true>
+        <set_values/>
+        <short_description>Create a UI policy to hide the services_provided field when the vendor_name is empty in the Vendor form.</short_description>
+        <sys_class_name>sys_ui_policy</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-04 08:52:51</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>342ad99f838722104e49a130ceaad31b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Create a UI policy to hide the services_provided field when the vendor_name is empty in the Vendor form.</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Event Management and Planning" source="x_1790116_event_ma">836b3413830722104e49a130ceaad3ad</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Event Management and Planning">836b3413830722104e49a130ceaad3ad</sys_scope>
+        <sys_update_name>sys_ui_policy_342ad99f838722104e49a130ceaad31b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-04 08:52:51</sys_updated_on>
+        <table>x_1790116_event_ma_vendor</table>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_ui_policy>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Event Management and Planning">836b3413830722104e49a130ceaad3ad</application>
+        <file_path/>
+        <instance_id>12cc837c3b38aa94a36804e0b5e45a5f</instance_id>
+        <instance_name>dev319628</instance_name>
+        <name>sys_ui_policy_342ad99f838722104e49a130ceaad31b</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_ui_policy"&gt;&lt;sys_ui_policy action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;conditions table="x_1790116_event_ma_vendor"&gt;u_vendor_nameISEMPTY^EQ&lt;item endquery="false" field="u_vendor_name" goto="false" newquery="false" operator="ISEMPTY" or="false" value=""/&gt;&lt;item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/&gt;&lt;/conditions&gt;&lt;description/&gt;&lt;global&gt;true&lt;/global&gt;&lt;inherit&gt;false&lt;/inherit&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;model_id/&gt;&lt;model_table/&gt;&lt;on_load&gt;true&lt;/on_load&gt;&lt;order&gt;100&lt;/order&gt;&lt;reverse_if_false&gt;true&lt;/reverse_if_false&gt;&lt;run_scripts&gt;false&lt;/run_scripts&gt;&lt;script_false&gt;&lt;![CDATA[function onCondition() {
+
+}]]&gt;&lt;/script_false&gt;&lt;script_true&gt;&lt;![CDATA[function onCondition() {
+
+}]]&gt;&lt;/script_true&gt;&lt;set_values/&gt;&lt;short_description&gt;Create a UI policy to hide the services_provided field when the vendor_name is empty in the Vendor form.&lt;/short_description&gt;&lt;sys_class_name&gt;sys_ui_policy&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-08-04 08:52:51&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;342ad99f838722104e49a130ceaad31b&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;Create a UI policy to hide the services_provided field when the vendor_name is empty in the Vendor form.&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Event Management and Planning" source="x_1790116_event_ma"&gt;836b3413830722104e49a130ceaad3ad&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Event Management and Planning"&gt;836b3413830722104e49a130ceaad3ad&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ui_policy_342ad99f838722104e49a130ceaad31b&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-08-04 08:52:51&lt;/sys_updated_on&gt;&lt;table&gt;x_1790116_event_ma_vendor&lt;/table&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_ui_policy&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>301012508</payload_hash>
+        <record_name>Create a UI policy to hide the services_provided field when the vendor_name is empty in the Vendor f</record_name>
+        <reverted_from/>
+        <source>2f8e3c17830722104e49a130ceaad38d</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-04 08:52:51</sys_created_on>
+        <sys_id>c73ad19f838722104e49a130ceaad39f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>198744898280000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-04 08:52:51</sys_updated_on>
+        <type>UI Policy</type>
+        <update_guid>cb3ad19f628722105484ca3f6c9c359e</update_guid>
+        <update_guid_history>cb3ad19f628722105484ca3f6c9c359e:301012508</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-04 08:55:51</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_policy">sys_ui_policy</sys_db_object>
+        <sys_id>2890c7159d99420a8d412c3626030804</sys_id>
+        <sys_metadata>342ad99f838722104e49a130ceaad31b</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Create a UI policy to hide the services_provided field when the vendor_name is empty in the Vendor form.</sys_name>
+        <sys_package display_value="Event Management and Planning" source="x_1790116_event_ma">836b3413830722104e49a130ceaad3ad</sys_package>
+        <sys_parent display_value="Vendor">b28e815f834722104e49a130ceaad3b1</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Event Management and Planning">836b3413830722104e49a130ceaad3ad</sys_scope>
+        <sys_scope_delete display_value="">2fe0b8e4b8944ca088fe084b7ad7a400</sys_scope_delete>
+        <sys_update_name>sys_ui_policy_342ad99f838722104e49a130ceaad31b</sys_update_name>
+        <sys_update_version display_value="sys_ui_policy_342ad99f838722104e49a130ceaad31b">c73ad19f838722104e49a130ceaad39f</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-04 08:55:51</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>u_event_name</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Eventclient</name>
+        <order/>
+        <script><![CDATA[function onLoad() {
+    var eventId = g_form.getValue('number');  
+ 
+    var ga = new GlideAjax('EventDetailsClientUtils');  // Script Include name
+    ga.addParam('sysparm_name', 'getEventDetails');
+    ga.addParam('sysparm_event_id', eventId);
+ 
+    ga.getXMLAnswer(function(response) {
+        var data = JSON.parse(response);
+ 
+        if (data.error) {
+            g_form.addInfoMessage('Error: ' + data.error);
+        } else {
+            var message = {
+                          'Name: ' : data.name + '--'+
+                          'Date: ' + data.date + '--' +
+                          'Location: ' + data.location + '--' +
+                          'Status: ' + data.status + '--'+
+                          'Contact: ' + data.contact + '--' +
+                          'Email: ' + data.email
+			}
+			var ans = JSON.stringify(message);
+            g_form.addInfoMessage(ans);
+        }
+    });
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-04 09:53:16</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>70a72513830b22104e49a130ceaad344</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Eventclient</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Event Management and Planning" source="x_1790116_event_ma">836b3413830722104e49a130ceaad3ad</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Event Management and Planning">836b3413830722104e49a130ceaad3ad</sys_scope>
+        <sys_update_name>sys_script_client_70a72513830b22104e49a130ceaad344</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-04 10:22:22</sys_updated_on>
+        <table>x_1790116_event_ma_event</table>
+        <type>onLoad</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

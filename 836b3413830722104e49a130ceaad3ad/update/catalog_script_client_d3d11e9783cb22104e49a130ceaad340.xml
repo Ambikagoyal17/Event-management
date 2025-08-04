@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="catalog_script_client">
+    <catalog_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_catalog>true</applies_catalog>
+        <applies_extended>false</applies_extended>
+        <applies_req_item>false</applies_req_item>
+        <applies_sc_task>false</applies_sc_task>
+        <applies_target_record>false</applies_target_record>
+        <applies_to>item</applies_to>
+        <cat_item display_value="Create an Event">af3e4a5383cb22104e49a130ceaad3c6</cat_item>
+        <cat_variable/>
+        <condition/>
+        <description/>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Location Validation</name>
+        <order/>
+        <published_ref/>
+        <script><![CDATA[function onSubmit(control, oldValue, newValue, isLoading) {
+  if (isLoading || newValue == '') {
+    return;
+  }
+
+  var location = g_form.getValue('u_location');
+  var eventDate = g_form.getValue('u_event_date');
+
+  if (!location || !eventDate) {
+    return;
+  }
+
+  var ga = new GlideAjax('CheckEventLocationAvailability');
+  ga.addParam('sysparm_name', 'isLocationAvailable');
+  ga.addParam('sysparm_location', location);
+  ga.addParam('sysparm_event_date', eventDate);
+  ga.getXMLAnswer(function(response) {
+    if (response === 'false') {
+      g_form.showFieldMsg('u_location', 'This location is already booked for the selected date.', 'error');
+     
+    }
+  });
+}
+]]></script>
+        <sys_class_name>catalog_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-04 12:56:36</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>d3d11e9783cb22104e49a130ceaad340</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Location Validation</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Event Management and Planning" source="x_1790116_event_ma">836b3413830722104e49a130ceaad3ad</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Event Management and Planning">836b3413830722104e49a130ceaad3ad</sys_scope>
+        <sys_update_name>catalog_script_client_d3d11e9783cb22104e49a130ceaad340</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-04 13:12:07</sys_updated_on>
+        <table/>
+        <type>onSubmit</type>
+        <ui_type>0</ui_type>
+        <va_supported>true</va_supported>
+        <variable_set/>
+        <view/>
+    </catalog_script_client>
+</record_update>

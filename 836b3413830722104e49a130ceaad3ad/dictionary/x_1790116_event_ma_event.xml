@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element audit="true" db_object_id="ab9a45d7834722104e49a130ceaad33c" extends="task" label="Event" max_length="40" name="x_1790116_event_ma_event" type="collection">
+        <element label="Finished" max_length="40" name="u_finished" type="boolean"/>
+        <element attributes="encode_utf8=false" label="Planner" max_length="32" name="u_planner" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Location" max_length="40" name="u_location" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Event Name" max_length="40" name="u_event_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Event Date" max_length="40" name="u_event_date" type="glide_date_time"/>
+        <element attributes="edge_encryption_enabled=true" label="Email" max_length="40" name="u_email" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="New Date/Time" max_length="40" name="u_glide_date_time_4" type="glide_date_time"/>
+        <element label="VIP" max_length="40" name="u_vip" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" label="Contact Number" max_length="40" name="u_contact_number" type="phone_number_e164"/>
+        <element attributes="edge_encryption_enabled=true" label="Contact Person" max_length="40" name="u_contact_person" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Status" max_length="40" name="u_status" type="string">
+            <choice>
+                <element inactive_on_update="false" label="New" sequence="0" value="new"/>
+                <element inactive_on_update="false" label="Finished" sequence="5" value="finished"/>
+                <element inactive_on_update="false" label="Cancelled" sequence="4" value="cancelled"/>
+                <element inactive_on_update="false" label="Planned" sequence="1" value="planned"/>
+                <element inactive_on_update="false" label="Scheduled" sequence="2" value="scheduled"/>
+                <element inactive_on_update="false" label="Completed" sequence="3" value="completed"/>
+            </choice>
+        </element>
+    </element>
+</database>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section action="DELETE" caption="" section_id="5941495b830722104e49a130ceaad3ab" sys_domain="global" table="x_1790116_event_ma_st_event" version="3" view="">
+        <sys_ui_section action="DELETE">
+            <caption/>
+            <header>false</header>
+            <name>x_1790116_event_ma_st_event</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-08-04 07:03:46</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>5941495b830722104e49a130ceaad3ab</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_1790116_event_ma_st_event</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Event Management and Planning" source="x_1790116_event_ma">836b3413830722104e49a130ceaad3ad</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Event Management and Planning">836b3413830722104e49a130ceaad3ad</sys_scope>
+            <sys_update_name>sys_ui_section_5941495b830722104e49a130ceaad3ab</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-08-04 07:03:46</sys_updated_on>
+            <sys_user/>
+            <title>true</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Event Management and Planning">836b3413830722104e49a130ceaad3ad</application>
+        <file_path/>
+        <instance_id>12cc837c3b38aa94a36804e0b5e45a5f</instance_id>
+        <instance_name>dev319628</instance_name>
+        <name>sys_ui_section_5941495b830722104e49a130ceaad3ab</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_ui_section caption="" section_id="5941495b830722104e49a130ceaad3ab" sys_domain="global" table="x_1790116_event_ma_st_event" version="3" view=""><sys_ui_section action="INSERT_OR_UPDATE"><caption/><header>false</header><name>x_1790116_event_ma_st_event</name><roles/><sys_class_name>sys_ui_section</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-08-04 07:03:46</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>5941495b830722104e49a130ceaad3ab</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x_1790116_event_ma_st_event</sys_name><sys_overrides/><sys_package display_value="Event Management and Planning" source="x_1790116_event_ma">836b3413830722104e49a130ceaad3ad</sys_package><sys_policy/><sys_scope display_value="Event Management and Planning">836b3413830722104e49a130ceaad3ad</sys_scope><sys_update_name>sys_ui_section_5941495b830722104e49a130ceaad3ab</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-08-04 07:03:46</sys_updated_on><sys_user/><title>true</title><view display_value="Default view" name="NULL">Default view</view><view_name/></sys_ui_section></sys_ui_section></record_update>]]></payload>
+        <payload_hash>-571060308</payload_hash>
+        <record_name>Event</record_name>
+        <reverted_from/>
+        <source>2f8e3c17830722104e49a130ceaad38d</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-04 07:03:46</sys_created_on>
+        <sys_id>91414d5b830722104e49a130ceaad316</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19873e4bac30000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-04 07:03:46</sys_updated_on>
+        <type>Form Layout</type>
+        <update_guid>51414d5bab072210cb736a90681d8b16</update_guid>
+        <update_guid_history>51414d5bab072210cb736a90681d8b16:-571060308</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-04 07:04:40</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_section">sys_ui_section</sys_db_object>
+        <sys_id>2fb6dcee721946ca9c2cc9f71c7db831</sys_id>
+        <sys_metadata>5941495b830722104e49a130ceaad3ab</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_1790116_event_ma_st_event</sys_name>
+        <sys_package display_value="Event Management and Planning" source="x_1790116_event_ma">836b3413830722104e49a130ceaad3ad</sys_package>
+        <sys_parent display_value="">8f01c15b830722104e49a130ceaad365</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Event Management and Planning">836b3413830722104e49a130ceaad3ad</sys_scope>
+        <sys_scope_delete display_value="">2fe0b8e4b8944ca088fe084b7ad7a400</sys_scope_delete>
+        <sys_update_name>sys_ui_section_5941495b830722104e49a130ceaad3ab</sys_update_name>
+        <sys_update_version display_value="sys_ui_section_5941495b830722104e49a130ceaad3ab">91414d5b830722104e49a130ceaad316</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-04 07:04:40</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

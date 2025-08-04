@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_embedded_help_role">
+    <sys_embedded_help_role action="INSERT_OR_UPDATE">
+        <order>1000</order>
+        <role display_value="x_1790116_event_ma.venue_user" name="x_1790116_event_ma.venue_user">a4741957838722104e49a130ceaad3c5</role>
+        <sys_class_name>sys_embedded_help_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-04 08:27:33</sys_created_on>
+        <sys_id>20741957838722104e49a130ceaad3c7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>a4741957838722104e49a130ceaad3c5</sys_name>
+        <sys_package display_value="Event Management and Planning" source="x_1790116_event_ma">836b3413830722104e49a130ceaad3ad</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Event Management and Planning">836b3413830722104e49a130ceaad3ad</sys_scope>
+        <sys_update_name>sys_embedded_help_role_20741957838722104e49a130ceaad3c7</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-04 08:27:33</sys_updated_on>
+    </sys_embedded_help_role>
+</record_update>
