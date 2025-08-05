@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_1790116_event_ma.VenueUtils</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>VenueUtils</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var VenueUtils = Class.create();
+VenueUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+    getVenueDetails: function() {
+        var venueName = this.getParameter('sysparm_venue_name');
+        var gr = new GlideRecord('x_1790116_event_ma_venue');
+
+        gr.addQuery('u_venue_name', venueName);
+        gr.query();
+
+        while (gr.next()) {
+            return JSON.stringify({
+                available: gr.getValue('u_availability') == 'true', 
+                location: gr.getValue('u_location'),
+                capacity: gr.getValue('u_capacity'),
+                contact_person: gr.getValue('u_contact_person'),
+                contact_number: gr.getValue('u_contact_number')
+            });
+        }
+
+      
+    },
+
+    type: 'VenueUtils'
+});
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-04 16:44:42</sys_created_on>
+        <sys_id>1cd58b1b83cf22104e49a130ceaad30a</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>VenueUtils</sys_name>
+        <sys_package display_value="Event Management and Planning" source="x_1790116_event_ma">836b3413830722104e49a130ceaad3ad</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Event Management and Planning">836b3413830722104e49a130ceaad3ad</sys_scope>
+        <sys_update_name>sys_script_include_1cd58b1b83cf22104e49a130ceaad30a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-05 07:52:28</sys_updated_on>
+    </sys_script_include>
+</record_update>

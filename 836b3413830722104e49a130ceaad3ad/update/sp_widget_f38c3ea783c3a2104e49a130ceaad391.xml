@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($scope, $rootScope) {
+  $scope.showDetails = function(eventId) {
+    $rootScope.$broadcast('event:selected', eventId);
+  };
+}
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>/* Event List Widget Styles */
+.panel {
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border: 1px solid #ddd;
+}
+
+.panel-heading {
+  background-color: #f5f5f5;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+.table {
+  margin-top: 10px;
+}
+
+.table &gt; thead &gt; tr &gt; th {
+  background-color: #f0f0f0;
+  color: #333;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  padding: 4px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004a99;
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>event_list_widget</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Event List Widget</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  data.events = [];
+
+  var gr = new GlideRecord('x_1790116_event_ma_event'); // Your custom Event table
+  gr.query();
+  while (gr.next()) {
+    data.events.push({
+      sys_id: gr.getUniqueValue(),
+      event_id: gr.getValue('number')
+    });
+  }
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-05 10:41:04</sys_created_on>
+        <sys_id>f38c3ea783c3a2104e49a130ceaad391</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>Event List Widget</sys_name>
+        <sys_package display_value="Event Management and Planning" source="x_1790116_event_ma">836b3413830722104e49a130ceaad3ad</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Event Management and Planning">836b3413830722104e49a130ceaad3ad</sys_scope>
+        <sys_update_name>sp_widget_f38c3ea783c3a2104e49a130ceaad391</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-05 15:40:21</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title"><i class="fa fa-calendar"></i> Event List</h4>
+  </div>
+  <div class="panel-body table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Event ID</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="event in c.data.events">
+          <td>{{ event.event_id }}</td>
+          <td>
+            <a href="?id=event_details_page&sys_id={{ event.sys_id }}" class="btn btn-sm btn-primary">
+              View Details
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+]]></template>
+    </sp_widget>
+</record_update>

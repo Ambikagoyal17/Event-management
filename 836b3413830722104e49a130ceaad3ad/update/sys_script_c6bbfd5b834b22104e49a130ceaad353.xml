@@ -32,15 +32,19 @@
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
 
 	// Add your code here
-gs.eventQueue('x_1790116_event_ma.notify assigned plann',current);
-})(current, previous);]]></script>
+gs.eventQueue('x_1790116_event_ma.notify assigned plann',current, current.u_assigned_planner.sys_id, '');
+})(current, previous);
+
+
+
+]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-08-04 11:20:14</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>c6bbfd5b834b22104e49a130ceaad353</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>Notify Planner</sys_name>
         <sys_overrides/>
         <sys_package display_value="Event Management and Planning" source="x_1790116_event_ma">836b3413830722104e49a130ceaad3ad</sys_package>
@@ -48,9 +52,9 @@ gs.eventQueue('x_1790116_event_ma.notify assigned plann',current);
         <sys_scope display_value="Event Management and Planning">836b3413830722104e49a130ceaad3ad</sys_scope>
         <sys_update_name>sys_script_c6bbfd5b834b22104e49a130ceaad353</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-08-04 11:20:14</sys_updated_on>
+        <sys_updated_on>2025-08-04 20:51:23</sys_updated_on>
         <template/>
-        <when>before</when>
+        <when>after</when>
     </sys_script>
     <sys_translated_text action="delete_multiple" query="documentkey=c6bbfd5b834b22104e49a130ceaad353"/>
 </record_update>

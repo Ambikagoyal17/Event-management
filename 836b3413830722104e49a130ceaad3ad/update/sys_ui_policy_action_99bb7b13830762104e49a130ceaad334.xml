@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <cleared>false</cleared>
+        <disabled>true</disabled>
+        <field>u_event_date</field>
+        <field_message/>
+        <field_message_type>none</field_message_type>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-04 20:38:44</sys_created_on>
+        <sys_id>99bb7b13830762104e49a130ceaad334</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>u_event_date</sys_name>
+        <sys_package display_value="Event Management and Planning" source="x_1790116_event_ma">836b3413830722104e49a130ceaad3ad</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Event Management and Planning">836b3413830722104e49a130ceaad3ad</sys_scope>
+        <sys_update_name>sys_ui_policy_action_99bb7b13830762104e49a130ceaad334</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-04 20:38:44</sys_updated_on>
+        <table>x_1790116_event_ma_event</table>
+        <ui_policy display_value="Create a data policy to restrict editing of the event_date field to users with the event_admin role.">ac6bbfdf83c362104e49a130ceaad3ee</ui_policy>
+        <value/>
+        <value_action>ignore</value_action>
+        <visible>ignore</visible>
+    </sys_ui_policy_action>
+    <sys_translated_text action="delete_multiple" query="documentkey=99bb7b13830762104e49a130ceaad334"/>
+</record_update>

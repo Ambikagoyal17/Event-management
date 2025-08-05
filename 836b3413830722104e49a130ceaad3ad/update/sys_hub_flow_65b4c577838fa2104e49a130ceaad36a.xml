@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_hub_flow">
+    <sys_hub_flow action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>false</active>
+        <annotation/>
+        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,viewActivatedIn=naturalLanguage</attributes>
+        <authored_on_release_version>27000</authored_on_release_version>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <compiler_build/>
+        <copied_from/>
+        <copied_from_name/>
+        <description/>
+        <display_name_after_preview/>
+        <flow_priority>MEDIUM</flow_priority>
+        <generation_source/>
+        <internal_name>notify_assigned_user_for_due_date</internal_name>
+        <label_cache>[{"name":"18dd3135-e351-4b29-a162-8454d5800ca3.Record","label":"1 - Look Up Record➛Task Record","reference":"x_1790116_event_ma_task","reference_display":"Task","type":"reference","base_type":"reference","usedInstances":{},"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"18dd3135-e351-4b29-a162-8454d5800ca3.Record.assigned_to","label":"1 - Look Up Record➛Task Record➛Assigned to","reference":"sys_user","reference_display":"Assigned to","type":"reference","base_type":"reference","parent_table_name":"x_1790116_event_ma_task","column_name":"assigned_to","usedInstances":{}},{"name":"18dd3135-e351-4b29-a162-8454d5800ca3.Record.assigned_to.email","label":"1 - Look Up Record➛Task Record➛Assigned to➛Email","reference":"","reference_display":"Email","type":"email","base_type":"email","parent_table_name":"sys_user","column_name":"email","usedInstances":{"dc89fe89-c10b-4903-b6c4-5719b61bf677":["recipients"]}}]</label_cache>
+        <latest_snapshot/>
+        <master_snapshot/>
+        <master_snapshot_digest/>
+        <name>Notify assigned user for due date</name>
+        <natlang/>
+        <outputs/>
+        <pre_compiled>false</pre_compiled>
+        <remote_trigger_id/>
+        <run_as>user</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <show_draft_actions>false</show_draft_actions>
+        <show_triggered_flows>false</show_triggered_flows>
+        <status>draft</status>
+        <substatus/>
+        <sys_class_name>sys_hub_flow</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-05 20:35:46</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>65b4c577838fa2104e49a130ceaad36a</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Notify assigned user for due date</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Event Management and Planning" source="x_1790116_event_ma">836b3413830722104e49a130ceaad3ad</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Event Management and Planning">836b3413830722104e49a130ceaad3ad</sys_scope>
+        <sys_update_name>sys_hub_flow_65b4c577838fa2104e49a130ceaad36a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-05 20:42:55</sys_updated_on>
+        <type>flow</type>
+        <updation_source/>
+        <version>2</version>
+    </sys_hub_flow>
+    <sys_translated_text action="delete_multiple" query="documentkey=65b4c577838fa2104e49a130ceaad36a"/>
+    <sys_variable_value action="delete_multiple" query="document_key=65b4c577838fa2104e49a130ceaad36a"/>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=65b4c577838fa2104e49a130ceaad36a"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=65b4c577838fa2104e49a130ceaad36a^sys_idNOT INa9b4c577838fa2104e49a130ceaad36a"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>65b4c577838fa2104e49a130ceaad36a</id>
+        <name>Notify assigned user for due date</name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-05 20:35:46</sys_created_on>
+        <sys_id>a9b4c577838fa2104e49a130ceaad36a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-05 20:35:46</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=a9b4c577838fa2104e49a130ceaad36a"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=65b4c577838fa2104e49a130ceaad36a"/>
+    <sys_hub_flow_output action="delete_multiple" query="model=65b4c577838fa2104e49a130ceaad36a"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=65b4c577838fa2104e49a130ceaad36a"/>
+    <sys_hub_trigger_instance_v2 action="delete_multiple" query="flow=65b4c577838fa2104e49a130ceaad36a^sys_idNOT IN4e56c1bb838fa2104e49a130ceaad3a1"/>
+    <sys_hub_trigger_instance_v2 action="INSERT_OR_UPDATE">
+        <comment/>
+        <display_text/>
+        <flow display_value="Notify assigned user for due date">65b4c577838fa2104e49a130ceaad36a</flow>
+        <generation_source/>
+        <name>Run Once</name>
+        <published_version/>
+        <remote_sys_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-05 20:42:55</sys_created_on>
+        <sys_id>4e56c1bb838fa2104e49a130ceaad3a1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-05 20:42:55</sys_updated_on>
+        <trigger_definition display_value="Run Once">0a76e504c32222002841b63b12d3aeac</trigger_definition>
+        <trigger_inputs>H4sIAAAAAAAA/3VSXWvcMBD8K0HPF1f2peHit0I46EMbSI68hCDW0vpOoK/K0iVuyH/vyvYdIaF+29nd2Zmxnt6YgQ4Na9l9dhfesRXTLmF0YHZjQML3RisUChKKpC3SgAVHpY8ja1PMuGJ99HaHNhgaYm0PZiDQR4WRtTXnK3YEk/FhHH4qIiQGB7ZQx+yELienPgENb75f8s0lv76o63bNW86pKw/aqIiOtU/PKxYg0nYq3G+fWokUi5OfWxLzbTcr1uXuTQO9VDdXct3Qx3mzuaq763VXN2oNiBua+5LFZ6Hpf5l8dIuvCZ1CdY7iS2ARQd05M54nDhT6HI2F10H/xYUqYo9kT+LcPJdC6YHiHmdYHryWeBeSJtETkqAzy470Jlv3ezZCtcIeskmPS+SE5IH4MBTNRcUiqX84+Jf708GtdpPBpWm8BHOuIKWou5xwKP8EDVoiEhZC0G4vQvRHPS2TFltN2VW98S90dNB7V4EswiuKCKot4bcT/AhRFxe/iIaW3yf34k8ud2cfi2Ixm6aBJZStRrM8tEFGHdIPOnA8vcz3538g8Utw9QIAAA==</trigger_inputs>
+        <trigger_outputs/>
+        <trigger_type>run_once</trigger_type>
+        <updation_source/>
+    </sys_hub_trigger_instance_v2>
+    <sys_hub_action_instance_v2 action="delete_multiple" query="flow=65b4c577838fa2104e49a130ceaad36a^sys_idNOT IN1256c1bb838fa2104e49a130ceaad3a4,8256c1bb838fa2104e49a130ceaad3a3"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Send SMS">027499be7333001099792f163cf6a7a7</action_type>
+        <action_type_parent display_value="Send SMS">d2733cb27333001099792f163cf6a77f</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot/>
+        <display_text/>
+        <flow display_value="Notify assigned user for due date">65b4c577838fa2104e49a130ceaad36a</flow>
+        <generation_source/>
+        <order>2</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-05 20:42:55</sys_created_on>
+        <sys_id>1256c1bb838fa2104e49a130ceaad3a4</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="Event Management and Planning">836b3413830722104e49a130ceaad3ad</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-05 20:42:55</sys_updated_on>
+        <ui_id>dc89fe89-c10b-4903-b6c4-5719b61bf677</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1Ty27bMBD8FYFnS9Dbkm8FggAFmgZI2lyCQliTK5soJSoklcQ1/O9d2rIbJH0ERdBTjxzuY2Z293bLpGALxnGe1/US51mWxXES1/W8TtukzHhbwhzmbMZ66JAiDXI5SOydJewe1OjB7TaphMiSrAgxK5IwX6Z1CEmZhlVe5KKo4phDFl0h10ZEYK1c9SgapyPsQKrdLqBiQtpBwebmLWvytVTCYM8Wt19mbABDIhwattg++3KbARsFS1TU+toZ2a8o/bXeHBOvnprzM8N8G8LssQFR92ySGcNHh71AatiCsjhjHfQCnDYbtnBmJMAgiMtebU4Ra9k7KsZ87KOV36gymRL7yBZJGcfD7+nZTBYfYL7WkuPl4KTuD4iDpZpyuFZj1388SPDDwRZG5Y7DIWS0VA8HT9rTmDi112v9cHVseC77vb7pU2kO6vQCRy4sR4fWj2OUn8ibD88ngAo7qt90MAyENIPR93Jfkyh20UrRI2qVfiAufgMi4F5PRNZBdE742R6+ASO9uAsqQ8lej5Kd3K8C8/Z6QXsGT6czys+9vBvx/X4N2rSglWtDyDPaxrnIwjpGEVbLPCnzok3iTLDd3u3mbvQ6D75NDjUHkynAciMH94543uNkxm423WGe/nbX8MdadWgtrPDJEZ6NGJBsDFptgo0eTeDAfg2kDZzuOm2Mfnh5Za9LeoszeoW0Y+LFSdsLsb84oPT/Af3jA/rTtVRZnaRVGbZlzcNc5HVYJWURxpADCMzrVvz9tXz5Dndf+ES3BgAA</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=1256c1bb838fa2104e49a130ceaad3a4"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Look Up Record">9d09f99587003300663ca1bb36cb0ba3</action_type>
+        <action_type_parent display_value="Look Up Record">b93f42810b30030085c083eb37673a63</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot/>
+        <display_text/>
+        <flow display_value="Notify assigned user for due date">65b4c577838fa2104e49a130ceaad36a</flow>
+        <generation_source/>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-05 20:42:55</sys_created_on>
+        <sys_id>8256c1bb838fa2104e49a130ceaad3a3</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="Event Management and Planning">836b3413830722104e49a130ceaad3ad</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-05 20:42:55</sys_updated_on>
+        <ui_id>18dd3135-e351-4b29-a162-8454d5800ca3</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/9VYW2/iOBT+K1GediXKOtwCfdrVVEgj7RZppjsv3cpyYge8Y+yM40Av6n/f4zgGChQoMDudR9vn8p1zvnPs5PYp5DS8DOkADbLBoNuPEWq3Eer12imJkqTdSxOUkE7YCCWZMpA0JBEMljMiSru+x1E8QFHUw2zGpMFTgg0pvoIE5UUuyMOXWvDG7aYTLqhmMry8vWuEOdFg1jAdXj6tHZmHnGFBEiYqZfAaXFsIjYMRv1DejMA68EssnWmlqcWCGiG7N0xSBq4yIgrWCKdEUmKUfljsaEboSIrlxoRLAxZDK3xf8Ecw30dWLmMQVsrc2WKJ6wy57XSieMpGueFKuh0H1B0qUU7ltQvA5pZlpBTG5xZ2ygLssdxitiBqRNnniZp/8g6HXFbh1YdCpUQsVsQYzZPSsMLWggk2deXMcy7HONdqxitlwDJtjgUsmplQc3Ba8LFsktQCb0KKSHMI+1fV9heiuY3iLzADygCIC6g2dkkvVKmrrMxwKsqiOtBEFs5W+FzlCn8rLUoXdR0fdikCgSLVPDd/gMKM1aE8NzypuzspMlhSIlWScuuzWGF2iWkJOSWGja5v1FRprea//0tmxPm8HBfNhI25lJCfUeYlfvl1TQYQr55uNsZ383Ncq31YzcWhedyqvC25ddO92KubLjpb03UQ+kFtZ3T5/rpuXx+5gPc0U0R3koAu610obbDL3Eo3bfL+aIYOORP0xWVwADivPLJkC5KH1/DWBM2sj7VbofXT3won0jOj2OWFS8FldXmCQXDzjnnb3UmNJFrjQVX+JWurPRiym+wlgVHB4/FTtqqr5+8BIL3iZ0AU3DiUW4D7+erN19Rtn4267dbbqAvEuX1aoF9kbUuC/dvLls7LP1p5si4PJFpRiJ7vFtT/cJzP6K0+W9bnWm+239Scq8xyJ1evEOzML7v/uYkb1uEEVGt/2DUrnnM6Zmbp3UtRZeZEfN12XrNr0UNVeCe/EqOdHxLJyiuRZ3gKdeI5PF01S4EKBSaa4UyVkuL60bryfoS6ZVwXphbenCGfmCm1DBS0XGAmLKikg4X0OSbLAdF5xY9Z4MOrMRQBhBdU4QWL8N6WjFfmUeeMb71T5tGQcFGlHj4+8pXaMXhE61dm0p6q7Sj/gQPrQFDRWUGdPtG28X3rZNuD9af4kj116qSMJJ0W6cXtKEIoQjRG/TiO+r0k65G4ky0bDeNCpjAWwXIGxADz2BPBVxVtjhY3G4/+3QIz97dhbeJQvF75Ssl/SoRasQksYKhz4AHvD6meF4lSghG5pGf3hw2M9/JHpuT21ffntgp9r5vbuXxRjpL/Lfm3kn20pOgz1OpHNL3ox1F80clo72JASfeCDJJu3KYs7WTH3893/wFAaq/rnBQAAA==</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=8256c1bb838fa2104e49a130ceaad3a3"/>
+    <sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=65b4c577838fa2104e49a130ceaad36a"/>
+    <sys_hub_flow_logic_instance_v2 action="delete_multiple" query="flow=65b4c577838fa2104e49a130ceaad36a"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=65b4c577838fa2104e49a130ceaad36a"/>
+    <sys_hub_flow_variable action="delete_multiple" query="model=65b4c577838fa2104e49a130ceaad36a"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_65b4c577838fa2104e49a130ceaad36a"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_65b4c577838fa2104e49a130ceaad36a"/>
+    <sys_flow_trigger_plan action="delete_multiple" query="plan_id=65b4c577838fa2104e49a130ceaad36a"/>
+    <sys_flow_subflow_plan action="delete_multiple" query="plan_id=65b4c577838fa2104e49a130ceaad36a"/>
+</record_update>

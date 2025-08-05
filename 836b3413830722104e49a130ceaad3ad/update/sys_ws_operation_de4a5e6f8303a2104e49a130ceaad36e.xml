@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <http_method>POST</http_method>
+        <name>Create Event</name>
+        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+    try {
+        var requestBody = request.body.data;
+
+        // Log the incoming payload for debugging
+        gs.info("Incoming Event Payload: " + JSON.stringify(requestBody));
+
+        // Validation: check required fields
+        if (!requestBody.u_event_name || !requestBody.u_contact_person) {
+            response.setStatus(400);
+            return { error: 'Missing required fields: u_event_name or u_contact_person.' };
+        }
+
+        var eventGR = new GlideRecord('x_1790116_event_ma_event');
+        eventGR.initialize();
+
+        // Map fields from payload
+        eventGR.u_event_name = requestBody.u_event_name;
+        // eventGR.u_event_date = requestBody.u_event_date || '';
+        eventGR.u_location = requestBody.u_location || '';
+        eventGR.u_contact_person = requestBody.u_contact_person;
+        eventGR.u_contact_number = requestBody.u_contact_number || '';
+        eventGR.u_email = requestBody.u_email || '';
+
+        // Insert record
+        var newSysId = eventGR.insert();
+
+        if (newSysId) {
+            response.setStatus(201);
+            return {
+                message: 'Event created successfully',
+                sys_id: newSysId
+            };
+        } else {
+            response.setStatus(500);
+            return { error: 'Insert failed' };
+        }
+
+    } catch (err) {
+        // Catch block with safe error logging
+        gs.error("REST API Error: " + err);
+        response.setStatus(500);
+        return { error: 'Unexpected server error. Please check logs.' };
+    }
+
+})(request, response);
+]]></operation_script>
+        <operation_uri>/api/x_1790116_event_ma/create_event_records/create</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/create</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-05 08:12:32</sys_created_on>
+        <sys_id>de4a5e6f8303a2104e49a130ceaad36e</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>Create Event</sys_name>
+        <sys_package display_value="Event Management and Planning" source="x_1790116_event_ma">836b3413830722104e49a130ceaad3ad</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Event Management and Planning">836b3413830722104e49a130ceaad3ad</sys_scope>
+        <sys_update_name>sys_ws_operation_de4a5e6f8303a2104e49a130ceaad36e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-05 08:33:24</sys_updated_on>
+        <web_service_definition display_value="Create Event Records">bbf9966f8303a2104e49a130ceaad3ac</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+</record_update>

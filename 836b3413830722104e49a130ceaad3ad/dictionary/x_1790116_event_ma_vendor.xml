@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element audit="true" db_object_id="b28e815f834722104e49a130ceaad3b1" extends="task" label="Vendor" max_length="40" name="x_1790116_event_ma_vendor" type="collection">
+        <element attributes="encode_utf8=false" label="Event ID" max_length="32" name="u_event_id" reference="x_1790116_event_ma_event" type="reference"/>
         <element attributes="edge_encryption_enabled=true" label="Service Provider" max_length="40" name="u_service_provider" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Contact Person" max_length="40" name="u_contact_person" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Deliverable Status" max_length="40" name="u_deliverable_status" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Delivered" sequence="1" value="delivered"/>
+                <element inactive_on_update="false" label="Not Delivered" sequence="2" value="not delivered"/>
+                <element inactive_on_update="false" label="On the way" sequence="0" value="on the way"/>
+            </choice>
+        </element>
         <element attributes="edge_encryption_enabled=true" label="Contact Number" max_length="40" name="u_contact_number" type="phone_number_e164"/>
+        <element label="Due date" max_length="40" name="u_due_date_3" type="due_date"/>
+        <element label="Available" max_length="40" name="u_available" type="boolean"/>
         <element attributes="edge_encryption_enabled=true" label="Vendor Name" max_length="40" name="u_vendor_name" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Service Provided" max_length="40" name="u_service_provided" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Deliverable Name" max_length="40" name="u_deliverable_name" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Email" max_length="40" name="u_email" type="string"/>
     </element>
 </database>

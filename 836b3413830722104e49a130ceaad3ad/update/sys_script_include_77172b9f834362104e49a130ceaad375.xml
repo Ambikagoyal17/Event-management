@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_1790116_event_ma.FeedbackUtilsClient</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>FeedbackUtilsClient</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var FeedbackUtilsClient = Class.create();
+FeedbackUtilsClient.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+    getFeedbackDetailsById: function() {
+        var feedbackId = this.getParameter('sysparm_feedback_id');
+        var gr = new GlideRecord('x_1790116_event_ma_feedback');
+        gr.addQuery('number', feedbackId);
+        gr.query();
+
+        var result = [];
+        while (gr.next()) {
+            result.push(
+                'Event: ' + gr.getDisplayValue('u_event_id') +
+                ', Rating: ' + gr.getValue('u_rating') +
+                ', Comments: ' + gr.getValue('u_comments')
+            );
+        }
+        return result.length ? result.join('\n') : 'Feedback not found';
+    },
+
+    isFeedbackPositive: function() {
+        var feedbackId = this.getParameter('sysparm_feedback_id');
+        var gr = new GlideRecord('x_1790116_event_ma_feedback');
+        gr.addQuery('number', feedbackId);
+        gr.query();
+
+        while (gr.next()) {
+            var rating = gr.getValue('u_rating').toLowerCase();
+            if (rating === 'excellent' || rating === 'good') {
+                return 'Feedback is Positive';
+            }
+        }
+        return 'Feedback is Negative';
+    },
+
+    getFeedbackByEventId: function() {
+        var eventId = this.getParameter('sysparm_event_id');
+        var gr = new GlideRecord('x_1790116_event_ma_feedback');
+        gr.addQuery('u_event_id.number', eventId);
+        gr.query();
+
+        var result = [];
+        while (gr.next()) {
+            result.push(
+                gr.getValue('u_rating') + ': ' + gr.getValue('u_comments')
+            );
+        }
+        return result.length ? result.join('\n') : 'No feedback found';
+    },
+    submitFeedback: function () {
+        var eventID = this.getParameter('sysparm_eventID');
+        var attendeeID = this.getParameter('sysparm_attendeeID');
+        var rating = this.getParameter('sysparm_rating');
+        var comments = this.getParameter('sysparm_comments');
+
+        if (!eventID || !attendeeID || !rating || !comments) {
+            return JSON.stringify({
+                success: false,
+                message: "All fields are required."
+            });
+        }
+
+        var gr1 = new GlideRecord("x_1790116_event_ma_feedback");
+        gr1.initialize();
+        gr1.u_event_id = eventID;
+        gr1.u_attendee_id = attendeeID;
+        gr1.u_rating = rating;
+        gr1.u_comments = comments;
+
+        var id = gr1.insert();
+        if (id) {
+            return JSON.stringify({
+                success: true,
+                message: "Thank you for your feedback!"
+            });
+        } else {
+            return JSON.stringify({
+                success: false,
+                message: "Failed to submit feedback."
+            });
+        }
+    },
+    type: 'FeedbackUtilsClient'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-04 19:10:38</sys_created_on>
+        <sys_id>77172b9f834362104e49a130ceaad375</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>FeedbackUtilsClient</sys_name>
+        <sys_package display_value="Event Management and Planning" source="x_1790116_event_ma">836b3413830722104e49a130ceaad3ad</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Event Management and Planning">836b3413830722104e49a130ceaad3ad</sys_scope>
+        <sys_update_name>sys_script_include_77172b9f834362104e49a130ceaad375</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-04 22:57:43</sys_updated_on>
+    </sys_script_include>
+</record_update>

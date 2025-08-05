@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_1790116_event_ma.AttendeeUtilss</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>AttendeeUtilss</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var AttendeeUtilss = Class.create();
+AttendeeUtilss.prototype = {
+    initialize: function() {
+    },
+
+    // a. Check if an attendee is registered by email
+    isAttendeeRegistered: function(email) {
+        var gr = new GlideRecord('x_1790116_event_ma_attendee');
+        gr.addQuery('u_email', email);
+        gr.query();
+        if (gr.next()) {
+            return 'Attendee is registered';
+        }
+        return 'Attendee not registered';
+    },
+
+    // b. Fetch attendee details by ID 
+    getAttendeeByID: function(attendeeID) {
+        var gr = new GlideRecord('x_1790116_event_ma_attendee');
+        gr.addQuery('number', attendeeID);
+        gr.query();
+        if (gr.next()) {
+            return gr.u_first_name + ' ' + gr.u_last_name + ' | ' + gr.u_email + ' | ' + gr.u_contact_number + ' | ' + gr.u_event_id.getDisplayValue();
+        }
+        return 'Attendee not found';
+    },
+
+    // c. Fetch all attendees for a specific event
+    getAttendeesByEvent: function(eventID) {
+        var gr = new GlideRecord('x_1790116_event_ma_attendee');
+        gr.addQuery('u_event_id.number', eventID);
+        gr.query();
+        var result = [];
+        while (gr.next()) {
+            result.push(gr.u_first_name + ' ' + gr.u_last_name + ' | ' + gr.u_email);
+        }
+        return result.length ? result.join('\n') : 'No attendees found for this event';
+    },
+
+    type: 'AttendeeUtilss'
+};
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-04 18:22:35</sys_created_on>
+        <sys_id>553bdf57834362104e49a130ceaad3ad</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>AttendeeUtilss</sys_name>
+        <sys_package display_value="Event Management and Planning" source="x_1790116_event_ma">836b3413830722104e49a130ceaad3ad</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Event Management and Planning">836b3413830722104e49a130ceaad3ad</sys_scope>
+        <sys_update_name>sys_script_include_553bdf57834362104e49a130ceaad3ad</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-04 18:22:35</sys_updated_on>
+    </sys_script_include>
+</record_update>

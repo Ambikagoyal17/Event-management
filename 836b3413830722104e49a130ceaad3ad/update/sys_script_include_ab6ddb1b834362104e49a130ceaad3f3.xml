@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_1790116_event_ma.FeedbackUtils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>FeedbackUtils</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var FeedbackUtils = Class.create();
+FeedbackUtils.prototype = {
+    initialize: function() {},
+
+    // 1. Fetch feedback details by ID (feedback number)
+    getFeedbackByID: function(feedbackID) {
+        var gr = new GlideRecord('x_1790116_event_ma_feedback');
+        gr.addQuery('number', feedbackID);
+        gr.query();
+        if (gr.next()) {
+            return gr.getDisplayValue( 'u_attendee_id')+ ' | ' + gr.u_rating + ' | ' + gr.u_comments;
+        }
+        return 'No feedback found';
+    },
+
+    // 2. Check if feedback is positive (Excellent or Good)
+    isPositiveFeedback: function(feedbackID) {
+        var gr = new GlideRecord('x_1790116_event_ma_feedback');
+        gr.addQuery('number', feedbackID);
+        gr.query();
+        if (gr.next()) {
+            var rating = gr.u_rating.toLowerCase();
+            if (rating === 'excellent' || rating === 'good') {
+                return 'Positive Feedback';
+            } else {
+                return 'Not Positive';
+            }
+        }
+        return 'Feedback not found';
+    },
+
+    // 3. Fetch all feedback entries by Event ID
+    getFeedbackByEvent: function(eventID) {
+        var gr = new GlideRecord('x_1790116_event_ma_feedback');
+        gr.addQuery('u_event_id.number', eventID);
+        gr.query();
+        var result = [];
+        while (gr.next()) {
+            result.push(gr.getDisplayValue('u_attendee_id') + ' | ' + gr.u_rating + ' | ' + gr.u_comments);
+        }
+        return result.length ? result.join('\n') : 'No feedback found';
+    },
+
+    type: 'FeedbackUtils'
+};
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-04 18:29:20</sys_created_on>
+        <sys_id>ab6ddb1b834362104e49a130ceaad3f3</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>FeedbackUtils</sys_name>
+        <sys_package display_value="Event Management and Planning" source="x_1790116_event_ma">836b3413830722104e49a130ceaad3ad</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Event Management and Planning">836b3413830722104e49a130ceaad3ad</sys_scope>
+        <sys_update_name>sys_script_include_ab6ddb1b834362104e49a130ceaad3f3</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-04 19:39:58</sys_updated_on>
+    </sys_script_include>
+</record_update>

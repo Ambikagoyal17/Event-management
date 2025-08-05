@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function($scope, $location) {
+  $scope.c = this;
+  $scope.c.tab = 'tasks'; // Default tab
+
+  // Set current tab
+  $scope.c.setTab = function(tabName) {
+    $scope.c.tab = tabName;
+  };
+
+  // View Record (can be redirected to another widget or form)
+ $scope.c.viewRecord = function(record) {
+  window.location.href = '/emp?id=form&table=x_1790116_event_ma_task&sys_id=' + record.sys_id + '&view=sp';
+};
+
+
+ // Edit Record
+$scope.c.editRecord = function(record) {
+  window.location.href = '/emp?id=form&table=x_1790116_event_ma_task&sys_id=' + record.sys_id + '&view=sp';
+};
+
+	
+	
+// View Attendee
+$scope.c.viewAttendee = function(record) {
+  window.location.href = '/emp?id=form&table=x_1790116_event_ma_attendee&sys_id=' + record.sys_id + '&view=sp';
+};
+
+// Edit Attendee
+$scope.c.editAttendee = function(record) {
+  window.location.href = '/emp?id=form&table=x_1790116_event_ma_attendee&sys_id=' + record.sys_id + '&view=sp';
+};
+
+	
+	
+	
+		
+// View Vendor
+$scope.c.viewVendor = function(record) {
+  window.location.href = '/emp?id=form&table=x_1790116_event_ma_vendor&sys_id=' + record.sys_id + '&view=sp';
+};
+
+// Edit Vendor
+$scope.c.editVendor = function(record) {
+  window.location.href = '/emp?id=form&table=x_1790116_event_ma_vendor&sys_id=' + record.sys_id + '&view=sp';
+};
+
+	
+	
+	
+	
+	
+	
+	
+		$scope.c.viewschedule = function(record) {
+  window.location.href = '/emp?id=form&table=x_1790116_event_ma_schedule&sys_id=' + record.sys_id + '&view=sp';
+};
+
+// Edit Vendor
+$scope.c.editschedule = function(record) {
+  window.location.href = '/emp?id=form&table=x_1790116_event_ma_schedule&sys_id=' + record.sys_id + '&view=sp';
+};
+	
+	
+	
+	
+
+
+	$scope.c.viewbudget = function(record) {
+  window.location.href = '/emp?id=form&table=x_1790116_event_ma_budget&sys_id=' + record.sys_id + '&view=sp';
+};
+
+// Edit Vendor
+$scope.c.editbudget = function(record) {
+  window.location.href = '/emp?id=form&table=x_1790116_event_ma_budget&sys_id=' + record.sys_id + '&view=sp';
+};
+	
+	
+	
+	
+	
+	
+	
+	$scope.c.viewFeedback = function(record) {
+  window.location.href = '/emp?id=form&table=x_1790116_event_ma_feedback&sys_id=' + record.sys_id + '&view=sp';
+};
+
+// Edit Vendor
+$scope.c.editfeedback = function(record) {
+  window.location.href = '/emp?id=form&table=x_1790116_event_ma_feedback&sys_id=' + record.sys_id + '&view=sp';
+};
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+ $scope.c = $scope.c || {};
+
+$scope.c.deleteRecord = function(recordSysId) {
+  if (confirm("Are you sure you want to delete this task?")) {
+    $scope.server.update({
+      action: 'delete_task',
+      sys_id: recordSysId
+    }).then(function(response) {
+      if (response.success) {
+        alert("Task deleted successfully.");
+        $scope.server.get(); // reload data
+      } else {
+        alert("Failed to delete task: " + (response.error || 'Unknown error'));
+      }
+    });
+  }
+};
+
+
+
+
+
+};
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>/* Action Buttons */
+.action-btn {
+  margin-right: 5px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 13px;
+}
+
+.action-btn.view {
+  background-color: #2196f3;
+  color: white;
+  border: none;
+}
+
+.action-btn.edit {
+  background-color: #ffc107;
+  color: black;
+  border: none;
+}
+
+.action-btn.delete {
+  background-color: #f44336;
+  color: white;
+  border: none;
+}
+
+.action-btn:hover {
+  transform: scale(1.05);
+  opacity: 0.95;
+  cursor: pointer;
+}
+
+/* Optional: Space the action column */
+.table td.actions-cell {
+  white-space: nowrap;
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>event_details_widget</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Event details widget</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  // ✅ Handle Delete Action
+  // Delete logic
+// DELETE logic for task
+// Delete Task Record
+if (input && input.action === 'delete_task' && input.sys_id) {
+  var taskGR = new GlideRecord('table_name');
+  if (taskGR.get(input.sys_id)) {
+    try {
+      taskGR.deleteRecord();
+      data.success = true;
+    } catch (e) {
+      data.success = false;
+      data.error = 'Exception during deletion: ' + e.message;
+    }
+  } else {
+    data.success = false;
+    data.error = 'Task not found';
+  }
+  return;
+}
+
+
+
+
+  // Begin regular data loading
+  data.event = {};
+  data.tasks = [];
+  data.attendees = [];
+  data.vendors = [];
+  data.budget = [];
+  data.schedule = [];
+  data.feedback = [];
+
+  var sysId = (typeof input !== 'undefined' && input.sys_id) || $sp.getParameter('sys_id');
+  if (!sysId) {
+    data.error = "No Event ID provided.";
+    return;
+  }
+
+  // Fetch Event Info
+  var evGR = new GlideRecord('x_1790116_event_ma_event');
+  if (evGR.get(sysId)) {
+    data.event = {
+      sys_id: evGR.getUniqueValue(),
+      name: evGR.getValue('u_event_name'),
+      date: evGR.getDisplayValue('u_event_date'),
+      location: evGR.getValue('u_event_location'),
+      status: evGR.getDisplayValue('u_status'),
+      contact_person: evGR.getValue('u_contact_person'),
+      contact_number: evGR.getValue('u_contact_number'),
+      email: evGR.getValue('u_email')
+    };
+  } else {
+    data.error = "Event not found.";
+    return;
+  }
+
+  // Tasks
+  var taskGR = new GlideRecord('x_1790116_event_ma_task');
+  taskGR.addQuery('u_event_id', sysId);
+  taskGR.query();
+  while (taskGR.next()) {
+    data.tasks.push({
+      sys_id: taskGR.getUniqueValue(),
+      name: taskGR.getValue('u_task_name'),
+      assigned_to: taskGR.getDisplayValue('u_assigned_to'),
+      due_date: taskGR.getDisplayValue('u_due_date'),
+      status: taskGR.getDisplayValue('u_status')
+    });
+  }
+
+  // Attendees
+  var attGR = new GlideRecord('x_1790116_event_ma_attendee');
+  attGR.addQuery('u_event_id', sysId);
+  attGR.query();
+  while (attGR.next()) {
+    data.attendees.push({
+      sys_id: attGR.getUniqueValue(),
+      first_name: attGR.getValue('u_first_name'),
+      last_name: attGR.getValue('u_last_name'),
+      email: attGR.getValue('u_email'),
+      phone: attGR.getValue('u_contact_number'),
+      status: attGR.getDisplayValue('u_status')
+    });
+  }
+
+  // Vendors
+  var venGR = new GlideRecord('x_1790116_event_ma_vendor');
+  venGR.addQuery('u_event_id', sysId);
+  venGR.query();
+  while (venGR.next()) {
+    data.vendors.push({
+      sys_id: venGR.getUniqueValue(),
+      name: venGR.getValue('u_vendor_name'),
+      contact: venGR.getValue('u_contact_person'),
+      phone: venGR.getValue('u_contact_number'),
+      services: venGR.getValue('u_services_provided')
+    });
+  }
+
+  // Budget
+  var budGR = new GlideRecord('x_1790116_event_ma_budget');
+  budGR.addQuery('u_event_id', sysId);
+  budGR.query();
+  while (budGR.next()) {
+    data.budget.push({
+      sys_id: budGR.getUniqueValue(),
+      total_budget: budGR.getDisplayValue('u_total_budget'),
+      amount_spent: budGR.getDisplayValue('u_amount_spent'),
+      remaining: budGR.getDisplayValue('u_amount_remaining'),
+      status: budGR.getDisplayValue('u_status')
+    });
+  }
+
+  // Schedule
+  var schGR = new GlideRecord('x_1790116_event_ma_schedule');
+  schGR.addQuery('u_event_id', sysId);
+  schGR.orderBy('u_start_time');
+  schGR.query();
+  while (schGR.next()) {
+    data.schedule.push({
+      sys_id: schGR.getUniqueValue(),
+      activity: schGR.getValue('u_activity_name'),
+      start: schGR.getDisplayValue('u_start_time'),
+      end: schGR.getDisplayValue('u_end_time'),
+      location: schGR.getValue('u_location')
+    });
+  }
+
+  // Feedback
+  var fbGR = new GlideRecord('x_1790116_event_ma_feedback');
+  fbGR.addQuery('u_event_id', sysId);
+  fbGR.query();
+  while (fbGR.next()) {
+    data.feedback.push({
+      sys_id: fbGR.getUniqueValue(),
+      attendee: fbGR.getDisplayValue('u_attendee_id'),
+      rating: fbGR.getDisplayValue('u_rating'),
+      comments: fbGR.getValue('u_comments')
+    });
+  }
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-05 10:49:29</sys_created_on>
+        <sys_id>b97efaeb83c3a2104e49a130ceaad3ee</sys_id>
+        <sys_mod_count>39</sys_mod_count>
+        <sys_name>Event details widget</sys_name>
+        <sys_package display_value="Event Management and Planning" source="x_1790116_event_ma">836b3413830722104e49a130ceaad3ad</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Event Management and Planning">836b3413830722104e49a130ceaad3ad</sys_scope>
+        <sys_update_name>sp_widget_b97efaeb83c3a2104e49a130ceaad3ee</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-05 17:59:49</sys_updated_on>
+        <template><![CDATA[<!-- Breadcrumb Navigation -->
+<nav aria-label="breadcrumb" class="mb-3">
+  <ol class="breadcrumb" style="background: none; padding-left: 0;">
+    <li class="breadcrumb-item">
+      <a href="/sp">Home</a>
+    </li>
+    <li class="breadcrumb-item">
+      <a href="/sp?id=events_list">Events</a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">
+      {{ data.event.event_name || data.event.name || 'Event Details' }}
+    </li>
+  </ol>
+</nav>
+
+
+<div class="panel panel-default hc-widget">
+  <div class="panel-heading">
+    <h4 class="panel-title"><i class="fa fa-calendar"></i> {{ data.event.name }}</h4>
+    <p>{{ data.event.date }} | {{ data.event.location }} | {{ data.event.type }}</p>
+  </div>
+
+  <div class="panel-body">
+    <ul class="nav nav-tabs">
+      <li ng-class="{active: c.tab === 'tasks'}"><a href="" ng-click="c.setTab('tasks')">Tasks</a></li>
+      <li ng-class="{active: c.tab === 'attendees'}"><a href="" ng-click="c.setTab('attendees')">Attendees</a></li>
+      <li ng-class="{active: c.tab === 'vendors'}"><a href="" ng-click="c.setTab('vendors')">Vendors</a></li>
+      <li ng-class="{active: c.tab === 'budget'}"><a href="" ng-click="c.setTab('budget')">Budget</a></li>
+      <li ng-class="{active: c.tab === 'schedule'}"><a href="" ng-click="c.setTab('schedule')">Schedule</a></li>
+      <li ng-class="{active: c.tab === 'feedback'}"><a href="" ng-click="c.setTab('feedback')">Feedback</a></li>
+    </ul>
+
+    <div class="tab-content p-3">
+
+      <!-- Tasks -->
+     <!-- Tasks -->
+<div ng-show="c.tab === 'tasks'">
+  <h5>Tasks</h5>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Assigned To</th>
+        <th>Due Date</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="t in data.tasks">
+        <td>{{ t.name }}</td>
+        <td>{{ t.assigned_to }}</td>
+        <td>{{ t.due_date }}</td>
+        <td>{{ t.status }}</td>
+        <td>
+          <button class="btn btn-sm btn-info" ng-click="c.viewRecord(t)">View</button>
+					<button class="btn btn-sm btn-warning" ng-click="c.editRecord(t)">Edit</button>
+
+         <button class="btn btn-sm btn-danger" ng-click="c.deleteRecord(t.sys_id)">Delete</button>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+     <!-- Attendees -->
+<div ng-show="c.tab === 'attendees'">
+  <h5>Attendees</h5>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Contact Number</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="a in data.attendees">
+        <td>{{ a.first_name }}</td>
+        <td>{{ a.last_name }}</td>
+        <td>{{ a.email }}</td>
+        <td>{{ a.contact_number }}</td>
+        <td>{{ a.status }}</td>
+        <td>
+          <button class="btn btn-sm btn-info" ng-click="c.viewAttendee(a)">View</button>
+          <button class="btn btn-sm btn-warning" ng-click="c.editAttendee(a)">Edit</button>
+          <button class="btn btn-sm btn-danger" ng-click="c.deleteAttendee(a.sys_id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+      <!-- Vendors -->
+      <div ng-show="c.tab === 'vendors'">
+        <h5>Vendors</h5>
+        <table class="table table-striped">
+          <thead><tr><th>Name</th><th>Service</th><th>Contact</th><th>Phone</th><th>Actions</th></tr></thead>
+          <tbody>
+            <tr ng-repeat="v in data.vendors">
+              <td>{{ v.name }}</td>
+              <td>{{ v.service }}</td>
+              <td>{{ v.contact }}</td>
+              <td>{{ v.phone }}</td>
+            <td>
+  <button class="btn btn-sm btn-info" ng-click="c.viewVendor(v)">View</button>
+  <button class="btn btn-sm btn-warning" ng-click="c.editVendor(v)">Edit</button>
+  <button class="btn btn-sm btn-danger" ng-click="c.deleteVendor(v.sys_id)">Delete</button>
+</td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Budget -->
+      <div ng-show="c.tab === 'budget'">
+        <h5>Budget</h5>
+        <table class="table table-striped">
+          <thead><tr><th>Category</th><th>Amount</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody>
+            <tr ng-repeat="b in data.budget">
+              <td>{{ b.category }}</td>
+              <td>{{ b.amount }}</td>
+              <td>{{ b.status }}</td>
+              <td>
+                <button class="btn btn-sm btn-info" ng-click="c.viewbudget(b)">View</button>
+                <button class="btn btn-sm btn-warning" ng-click="c.editbudget(b)">Edit</button>
+                <button class="btn btn-sm btn-danger" ng-click="c.deletebudget(b)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Schedule -->
+      <div ng-show="c.tab === 'schedule'">
+        <h5>Schedule</h5>
+        <table class="table table-striped">
+          <thead><tr><th>Activity</th><th>Start</th><th>End</th><th>Actions</th></tr></thead>
+          <tbody>
+            <tr ng-repeat="s in data.schedule">
+              <td>{{ s.activity }}</td>
+              <td>{{ s.start }}</td>
+              <td>{{ s.end }}</td>
+              <td>
+                <button class="btn btn-sm btn-info" ng-click="c.viewschedule(s)">View</button>
+                <button class="btn btn-sm btn-warning" ng-click="c.editschedule(s)">Edit</button>
+                <button class="btn btn-sm btn-danger" ng-click="c.deleteschedule( s)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Feedback -->
+      <div ng-show="c.tab === 'feedback'">
+        <h5>Feedback</h5>
+        <table class="table table-striped">
+          <thead><tr><th>Attendee</th><th>Rating</th><th>Comments</th><th>Actions</th></tr></thead>
+          <tbody>
+            <tr ng-repeat="f in data.feedback">
+              <td>{{ f.attendee }}</td>
+              <td>{{ f.rating }}</td>
+              <td>{{ f.comments }}</td>
+                     <td>
+  <button class="btn btn-sm btn-info" ng-click="c.viewFeedback(f)">View</button>
+  <button class="btn btn-sm btn-warning" ng-click="c.editfeedback(f)">Edit</button>
+  <button class="btn btn-sm btn-danger" ng-click="c.deletefeedback(f.sys_id)">Delete</button>
+</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+]]></template>
+    </sp_widget>
+</record_update>

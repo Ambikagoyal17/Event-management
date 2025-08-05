@@ -11,65 +11,154 @@
         <sandbox_callable>false</sandbox_callable>
         <script><![CDATA[var EventUtilsClient = Class.create();
 EventUtilsClient.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
-    // getEventDetails: function() {
-    //     var eventId = this.getParameter('sysparm_event_id'); 
-    //     var gr = new GlideRecord('x_1790116_event_ma_event');
-    //     gr.addQuery('number', eventId);
-    //     gr.query();
- 
-    //     if (gr.next()) {
-    //         var result = {
-    //             name: gr.getValue('u_event_name'),
-    //             date: gr.getDisplayValue('u_event_date'),
-    //             location: gr.getValue('u_location'),
-    //             status: gr.getValue('u_status'),
-    //             contact: gr.getValue('u_contact_person'),
-    //             email: gr.getValue('u_email')
-    //         };
-    //         return JSON.stringify(result);
-    //     }
-    //     return JSON.stringify({
-    //         error: 'Event not found'
-    //     });
-    // },
 
-
-	isVipEvent: function() {
-    var eventId = this.getParameter('sysparm_event_id');
-    var gr = new GlideRecord('x_1790116_event_ma_event');
-    
-    if (gr.get(eventId)) {
-        // Assuming u_vip is a boolean or string field storing '1' or 'true'
-        var vip = gr.getValue('u_vip');
-        if (vip === '1' || vip === 'true' || vip === true) {
-            return 'true';
-        } else {
-            return 'false';
+    getEventDetails: function() {
+        var eventId = this.getParameter('sysparm_event_id');
+        var gr = new GlideRecord('x_1790116_event_ma_event');
+        gr.addQuery('number', eventId);
+        gr.query();
+        var result = [];
+        while (gr.next()) {
+            result.push(
+                'Name: ' + gr.getValue('u_event_name') +
+                ', Date: ' + gr.getDisplayValue('u_event_date') +
+                ', Location: ' + gr.getValue('u_location') +
+                ', Status: ' + gr.getValue('u_status') +
+                ', Contact: ' + gr.getValue('u_contact_person') +
+                ', Email: ' + gr.getValue('u_email')
+            );
         }
-    }
-    return 'false';
-},
+        return result.length ? result.join('\n') : 'Event not found';
+    },
 
- 
+    isVipEvent: function() {
+        var eventId = this.getParameter('sysparm_event_id');
+        var gr = new GlideRecord('x_1790116_event_ma_event');
+        gr.addQuery('number', eventId);
+        gr.query();
+        while (gr.next()) {
+            var vip = gr.getValue('u_vip');
+            if (vip === '1' || vip === 'true' || vip === true) {
+                return 'true';
+            }
+        }
+        return 'false';
+    },
 
+    fetchEventTasks: function() {
+        var eventId = this.getParameter('sysparm_event_id');
+        var gr = new GlideRecord('x_1790116_event_ma_task');
+        gr.addQuery('u_event_id.number', eventId);
+        gr.query();
+        var result = [];
+        while (gr.next()) {
+            result.push(gr.getValue('number') + ' | ' + gr.getValue('u_task_name'));
+        }
+        return result.length ? result.join('\n') : 'No tasks found';
+    },
 
+    fetchEventAttendees: function() {
+        var eventId = this.getParameter('sysparm_event_id');
+        var gr = new GlideRecord('x_1790116_event_ma_attendee');
+        gr.addQuery('u_event_id.number', eventId);
+        gr.query();
+        var result = [];
+        while (gr.next()) {
+            result.push(gr.getValue('u_attendee_name') + ' | ' + gr.getValue('u_email'));
+        }
+        return result.length ? result.join('\n') : 'No attendees found';
+    },
 
+    fetchEventVendors: function() {
+        var eventId = this.getParameter('sysparm_event_id');
+        var gr = new GlideRecord('x_1790116_event_ma_vendor');
+        gr.addQuery('u_event_id.number', eventId);
+        gr.query();
+        var result = [];
+        while (gr.next()) {
+            result.push(gr.getValue('u_vendor_name') + ' | ' + gr.getValue('u_email'));
+        }
+        return result.length ? result.join('\n') : 'No vendors found';
+    },
 
+    fetchEventBudgetDetails: function() {
+        var eventId = this.getParameter('sysparm_event_id');
+        var gr = new GlideRecord('x_1790116_event_ma_budget');
+        gr.addQuery('u_event_id.number', eventId);
+        gr.query();
+        var result = [];
+        while (gr.next()) {
+            result.push(
+                'Total: ' + gr.getValue('u_total_budget') +
+                ', Spent: ' + gr.getValue('u_amount_spent') +
+                ', Remaining: ' + gr.getValue('u_amount_remaining')
+            );
+        }
+        return result.length ? result.join('\n') : 'No budget entries found';
+    },
+
+    fetchEventFeedback: function() {
+        var eventId = this.getParameter('sysparm_event_id');
+        var gr = new GlideRecord('x_1790116_event_ma_feedback');
+        gr.addQuery('u_event_id.number', eventId);
+        gr.query();
+        var result = [];
+        while (gr.next()) {
+            result.push(
+                'Attendee: ' + gr.getDisplayValue('u_attendee_id') +
+                ', Rating: ' + gr.getValue('u_rating') +
+                ', Comments: ' + gr.getValue('u_comments')
+            );
+        }
+        return result.length ? result.join('\n') : 'No feedback found';
+    },
+
+    calculateRemainingBudget: function() {
+        var eventId = this.getParameter('sysparm_event_id');
+        var gr = new GlideRecord('x_1790116_event_ma_budget');
+        gr.addQuery('u_event_id.number', eventId);
+        gr.query();
+        var result = [];
+        while (gr.next()) {
+            result.push('Remaining Budget: ' + gr.getValue('u_amount_remaining'));
+        }
+        return result.length ? result.join('\n') : 'Budget entry not found';
+    },
+	rescheduleEvent: function() {
+        var eventId = this.getParameter('sysparm_eventId');
+        var newDateInput = this.getParameter('sysparm_newDate');
+
+        if (newDateInput.length == 10) { 
+            newDateInput += " 09:00:00"; 
+        }
+
+        var gr = new GlideRecord('x_1790116_event_ma_event');
+        if (gr.get(eventId)) {
+            gr.u_event_date = newDateInput;
+            gr.update();
+
+            // Notify Planner
+            gs.eventQueue('x_1790116_event_ma.notify.on.reschedule', gr, gr.assigned_to, gr.sys_id);
+
+            return 'success';
+        }
+        return 'failure';
+    },
 
     type: 'EventUtilsClient'
 });
- ]]></script>
+]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-08-04 10:38:24</sys_created_on>
         <sys_id>4df1355f830b22104e49a130ceaad33c</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name>EventUtilsClient</sys_name>
         <sys_package display_value="Event Management and Planning" source="x_1790116_event_ma">836b3413830722104e49a130ceaad3ad</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Event Management and Planning">836b3413830722104e49a130ceaad3ad</sys_scope>
         <sys_update_name>sys_script_include_4df1355f830b22104e49a130ceaad33c</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-08-04 10:52:22</sys_updated_on>
+        <sys_updated_on>2025-08-04 21:56:11</sys_updated_on>
     </sys_script_include>
 </record_update>

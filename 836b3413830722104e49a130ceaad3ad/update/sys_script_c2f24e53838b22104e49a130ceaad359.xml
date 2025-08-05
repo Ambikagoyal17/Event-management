@@ -30,7 +30,7 @@
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
 
 	// Add your code here
-gs.eventQueue('x_1790116_event_ma.notify.attendee',current);
+gs.eventQueue('x_1790116_event_ma.notify.attendee',current.u_attendee.sys_id, '');
 })(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>admin</sys_created_by>
@@ -38,7 +38,7 @@ gs.eventQueue('x_1790116_event_ma.notify.attendee',current);
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>c2f24e53838b22104e49a130ceaad359</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>feedback submitted</sys_name>
         <sys_overrides/>
         <sys_package display_value="Event Management and Planning" source="x_1790116_event_ma">836b3413830722104e49a130ceaad3ad</sys_package>
@@ -46,7 +46,7 @@ gs.eventQueue('x_1790116_event_ma.notify.attendee',current);
         <sys_scope display_value="Event Management and Planning">836b3413830722104e49a130ceaad3ad</sys_scope>
         <sys_update_name>sys_script_c2f24e53838b22104e49a130ceaad359</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-08-04 11:52:38</sys_updated_on>
+        <sys_updated_on>2025-08-04 20:56:00</sys_updated_on>
         <template/>
         <when>after</when>
     </sys_script>

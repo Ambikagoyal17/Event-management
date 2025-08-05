@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container">
+    <sp_container action="DELETE">
+        <background_color/>
+        <background_image/>
+        <background_style>default</background_style>
+        <bootstrap_alt>false</bootstrap_alt>
+        <class_name/>
+        <container_class_name/>
+        <name>Home Page - Container 6</name>
+        <order>6</order>
+        <semantic_tag/>
+        <sp_page display_value="home_page">ecbda2a78383a2104e49a130ceaad342</sp_page>
+        <subheader>false</subheader>
+        <sys_class_name>sp_container</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-05 18:57:04</sys_created_on>
+        <sys_id>bb1e6c7b830fa2104e49a130ceaad379</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Home Page - Container 6</sys_name>
+        <sys_package display_value="Event Management and Planning" source="x_1790116_event_ma">836b3413830722104e49a130ceaad3ad</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Event Management and Planning">836b3413830722104e49a130ceaad3ad</sys_scope>
+        <sys_update_name>sp_container_bb1e6c7b830fa2104e49a130ceaad379</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-05 18:57:14</sys_updated_on>
+        <title/>
+        <width>container</width>
+    </sp_container>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Event Management and Planning">836b3413830722104e49a130ceaad3ad</application>
+        <file_path/>
+        <instance_id>12cc837c3b38aa94a36804e0b5e45a5f</instance_id>
+        <instance_name>dev319628</instance_name>
+        <name>sp_container_bb1e6c7b830fa2104e49a130ceaad379</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container"><sp_container action="INSERT_OR_UPDATE"><background_color/><background_image/><background_style>default</background_style><bootstrap_alt>false</bootstrap_alt><class_name/><container_class_name/><name>Home Page - Container 6</name><order>6</order><semantic_tag/><sp_page display_value="home_page">ecbda2a78383a2104e49a130ceaad342</sp_page><subheader>false</subheader><sys_class_name>sp_container</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-08-05 18:57:04</sys_created_on><sys_id>bb1e6c7b830fa2104e49a130ceaad379</sys_id><sys_mod_count>1</sys_mod_count><sys_name>Home Page - Container 6</sys_name><sys_package display_value="Event Management and Planning" source="x_1790116_event_ma">836b3413830722104e49a130ceaad3ad</sys_package><sys_policy/><sys_scope display_value="Event Management and Planning">836b3413830722104e49a130ceaad3ad</sys_scope><sys_update_name>sp_container_bb1e6c7b830fa2104e49a130ceaad379</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-08-05 18:57:14</sys_updated_on><title/><width>container</width></sp_container></record_update>]]></payload>
+        <payload_hash>1359926527</payload_hash>
+        <record_name>Home Page - Container 6</record_name>
+        <reverted_from/>
+        <source>2f8e3c17830722104e49a130ceaad38d</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-05 18:57:14</sys_created_on>
+        <sys_id>9a2eac7b830fa2104e49a130ceaad385</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1987b984aaa0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-05 18:57:14</sys_updated_on>
+        <type>Container</type>
+        <update_guid>122eac7b880fa210cde4992923fa2185</update_guid>
+        <update_guid_history>122eac7b880fa210cde4992923fa2185:1359926527,fb1e6c7b990fa210f1357cf76287137a:828259998</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Home Page - Container 6">8d0fa0bb830fa2104e49a130ceaad38b</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-05 19:01:00</sys_created_on>
+        <sys_db_object display_value="" name="sp_container">sp_container</sys_db_object>
+        <sys_id>8f4bddcc52ab463695eddedad01ed984</sys_id>
+        <sys_metadata>bb1e6c7b830fa2104e49a130ceaad379</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Home Page - Container 6</sys_name>
+        <sys_package display_value="Event Management and Planning" source="x_1790116_event_ma">836b3413830722104e49a130ceaad3ad</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Event Management and Planning">836b3413830722104e49a130ceaad3ad</sys_scope>
+        <sys_scope_delete display_value="">2fe0b8e4b8944ca088fe084b7ad7a400</sys_scope_delete>
+        <sys_update_name>sp_container_bb1e6c7b830fa2104e49a130ceaad379</sys_update_name>
+        <sys_update_version display_value="sp_container_bb1e6c7b830fa2104e49a130ceaad379">9a2eac7b830fa2104e49a130ceaad385</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-05 19:01:00</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

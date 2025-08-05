@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element audit="true" db_object_id="671099df834722104e49a130ceaad3d3" extends="task" label="Budget" max_length="40" name="x_1790116_event_ma_budget" type="collection">
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Status" max_length="40" name="u_status" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Not Approved" sequence="1" value="not approved"/>
+                <element inactive_on_update="false" label="Wating for Approval" sequence="2" value="wating for approval"/>
+                <element inactive_on_update="false" label="Approved" sequence="0" value="approved"/>
+            </choice>
+        </element>
         <element attributes="omit_sys_original=true" label="Amount Spent" max_length="20" name="u_amount_spent" type="currency"/>
         <element attributes="omit_sys_original=true" label="Total Budget" max_length="20" name="u_total_budget" type="currency"/>
         <element attributes="encode_utf8=false" label="Event ID" max_length="32" name="u_event_id" reference="x_1790116_event_ma_event" type="reference"/>

@@ -2,8 +2,16 @@
     <element audit="true" db_object_id="5c13ddd3838722104e49a130ceaad334" extends="task" label="Attendee" max_length="40" name="x_1790116_event_ma_attendee" type="collection">
         <element attributes="encode_utf8=false" label="Event ID" max_length="32" name="u_event_id" reference="x_1790116_event_ma_event" type="reference"/>
         <element attributes="edge_encryption_enabled=true" label="First Name" max_length="40" name="u_first_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Check in Status" max_length="40" name="u_check_in_status" type="string">
+            <choice>
+                <element inactive="true" inactive_on_update="true" sequence="0" value="Choice 3"/>
+                <element inactive_on_update="false" label="No Show" sequence="1" value="no show"/>
+                <element inactive_on_update="false" label="Check In" sequence="0" value="check in"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Check In Time" max_length="40" name="u_check_in_time" type="glide_date_time"/>
         <element attributes="edge_encryption_enabled=true" label="Email" max_length="40" name="u_email" type="string"/>
-        <element attributes="edge_encryption_enabled=true" label="Contact Number" max_length="40" name="u_contact_number" type="phone_number_e164"/>
+        <element attributes="edge_encryption_enabled=true" label="Contact Number" max_length="40" name="u_contact_number" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Last Name" max_length="40" name="u_last_name" type="string"/>
     </element>
 </database>
